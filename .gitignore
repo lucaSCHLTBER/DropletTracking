@@ -1,0 +1,33 @@
+# Ignore data
+*.nd2
+data
+
+# Ignore DS_Store
+*.DS_Store
+
+# ignore logs
+logs
+
+# Include data necessary for testing
+!/evaluation/01_simulated/*.csv
+# !/evaluation/05_results/
+# !/data/05_results/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Git stuff
+**/__pycache__/
+
+# Hydra files
+outputs
+
+# Efficient Net
+efficientnet_b1.pth
+
+# Simulation files
+src/simulate_data/src_simulation/build
+src/simulate_data/data
+
+# Temporary folder
+/tmp/*
