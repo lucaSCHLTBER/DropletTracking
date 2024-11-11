@@ -1,0 +1,48 @@
+command:
+  - ../tracking/bin/python3.11
+  - ${program}
+  - ${args_no_hyphens}
+  - data_path=/cluster/scratch/${envvar:USER}/data/evaluation
+  - checkpoint_dir=/cluster/scratch/${envvar:USER}/checkpoints
+  - wandb=true
+  - skip_preprocessing=true
+  - skip_visual_embedding_extraction=true
+  - skip_tracking=false
+  - skip_results_generation=false
+  - skip_calibration_plot=true
+  - evaluate=unbalanced_v1
+  - evaluate.auroc=false
+  - sweep=true
+  - device=cuda
+program: src/evaluate_tracking.py
+method: grid
+parameters:
+  simulated_image:
+    values:
+      - small_mvt_20000_droplets.csv
+      - medium_mvt_20000_droplets.csv
+      - large_mvt_20000_droplets.csv
+  track:
+    values:
+      - tau_999
+      - tau_99
+  track.alpha:
+    values:
+      - 0.0
+      - 0.1
+      - 0.3
+      - 0.5
+      - 1.0
+  track.embedding_dist:
+    values:
+      - cosine
+      - euclid
+  track.relative_epsilon:
+    values:
+      - 5e-3
+      - 5e-4
+      - 5e-5
+  extract_visual_embeddings:
+    values:
+      - droplets_all
+      - droplets_only_cells

@@ -1,0 +1,39 @@
+# Description: Configuration file for visualizing individual trajectories.
+
+# Name of the results file to visualize
+results: "filtered_trajectories_y0_x0_basic.csv"
+# results: "dropped_trajectories_y0_x0_basic.csv"
+# results: "unfiltered_trajectories_y0_x0.csv"
+
+image_name: "Small mvt 1.nd2"
+evaluation_results: false 
+
+# Name of the experiment to visualize
+experiment_name: "small_mvt_1"
+
+# All channels to visualize (False means only DAPI and BF)
+all_channels: false #true
+
+# Frames to visualize (TODO: implement, at the moment only the given parameters are possible)
+start_frame: 0
+end_frame: -1
+
+# set radius around droplet center to visualize
+radius: 25
+
+# Path Settings (relative to project root)
+project_path: "."
+data_path: "data"
+
+# Cut out a small region of the image
+pixel: -1
+
+# Data directories (relative to data_path)
+raw_dir: "01_raw"
+results_dir: "05_results"
+
+# Print progress
+verbose: False
+
+# Save the refined tracked droplet data after labeling
+save: False
